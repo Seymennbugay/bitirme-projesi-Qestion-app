@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  background-color:orange;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  min-height: 100vh; /* height'ten min-height'a değiştirildi */
+  margin: 0;
+  padding: 20px; /* Dar ekranlarda kenarlarda boşluk oluşturur */
+}
+
+.start-screen {
+  text-align: center;
+  max-width: 600px; /* İçeriği daraltmak için maksimum genişlik ayarlandı */
+  margin: auto; /* Ekran ortalamasını sağlamak için otomatik margin */
+}
+
+.start-screen h1 {
+  font-size: 32px; /* Daha büyük başlık fontu */
+  color: #007bff;
+  margin-bottom: 20px; /* Başlık ve açıklama arasında boşluk eklendi */
+}
+
+.start-screen p {
+  font-size: 18px;
+  margin-bottom: 30px; /* Paragraflar arasında daha fazla boşluk */
+}
+
+.start-screen input {
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 18px; /* Daha büyük font boyutu */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%; /* Tam genişlikte olması için */
+  box-sizing: border-box; /* İçerik kutusunun genişlik hesaplamasını düzenler */
+}
+
+.start-screen button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #007bff;
   color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.start-screen button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.quiz-container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 700px; /* Daha büyük ekranlar için genişletildi */
+  width: 100%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+  animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
+.question-section {
+  margin-bottom: 25px;
+  animation: slideIn 0.6s ease;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.question-text {
+  font-size: 24px; /* Sorunun okunabilirliği artırıldı */
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.question-image img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.question-image img:hover {
+  transform: scale(1.05);
+}
+
+.options-section button {
+  width: 100%;
+  padding: 14px; /* Daha rahat bir buton deneyimi için padding artırıldı */
+  margin-bottom: 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 18px; /* Butonlar için daha büyük font */
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+}
+
+.options-section button:hover {
+  background: #0056b3;
+  transform: translateY(-3px);
+}
+
+.options-section button:disabled {
+  background: grey;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.timer {
+  text-align: right;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #28a745;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .quiz-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .question-text {
+    font-size: 20px; /* Küçük ekranlar için daha küçük font boyutu */
+  }
+
+  .start-screen h1 {
+    font-size: 28px; /* Küçük ekranlar için başlık boyutu azaltıldı */
+  }
+}
+
