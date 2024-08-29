@@ -88,7 +88,7 @@ function App() {
     return (
       <div className="start-screen">
         <h1>Test Başlıyor!</h1>
-        <p>Teste başlamadan önce, lütfen adınızı girerek kimliğinizi belirleyin...</p>
+        <p>Teste başlamadan önce, lütfen adınızı girerek kimliğinizi belirleyin Test On Sorudan Oluşmakta her bir soru için Otuz saniye süren olucak eğer seçim yapmazsan bir sonraki soruya geçicek ve geriye dönüş hakkın olmayacak ...</p>
         <input
           type="text"
           placeholder="Kullanıcı Adı"
